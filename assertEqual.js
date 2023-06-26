@@ -1,12 +1,9 @@
 const assertEqual = function(actual, expected) {
   let isEqual = actual === expected;
-  let message;
-  if (isEqual) {
-    message =  "👍 Assertion Passed: " + actual + " === " + expected;
-  } else {
-    message =  "👎 Assertion Failed: " + actual + " !== " + expected;
-  }
-  console.log(message);
+  const status = isEqual ? "👍 Assertion Passed: " : "👎 Assertion Failed: ";
+  const comparator = isEqual ? " === " : " !== ";
+
+  console.log(`${status}${actual}${comparator}${expected}`);
 };
 
 assertEqual("lighthouse Labs", "Bootcamp");
