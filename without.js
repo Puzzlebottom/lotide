@@ -36,3 +36,5 @@ assertArraysEqual(wordsWithout, ["abecedarian", "cassandraic"]);
 assertArraysEqual(words, ["abecedarian", "brobdingnagian", "cassandraic"]);
 assertArraysEqual(numbersWithout, [1, 2]);
 assertArraysEqual(numberStringsWithout, ["1", "2"]);
+assertArraysEqual(without([], ["deconstructivism"]), []);
+assertArraysEqual(without(["elephantiasis"], []), ["elephantiasis"]);
