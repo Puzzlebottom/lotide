@@ -20,12 +20,14 @@ const isEven = (integer) => {
 
 const middle = (array) => {
   let middle = [];
+  if (array.length < 3) return middle;
+
   let middleIndex = Math.floor(array.length / 2);
   if (isEven(array.length)) {
     middle.push(array[middleIndex - 1]);
+
   }
   middle.push(array[middleIndex]);
-  // console.log(middle);
   return middle;
 };
 
