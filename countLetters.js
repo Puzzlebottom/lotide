@@ -20,6 +20,7 @@ let testEmpty = "";
 let testNumber = 1234567890;
 
 assertEqual(countLetters(testString)["c"], 2);
+assertEqual(countLetters(testString)[" "], undefined);
 assertEqual(countLetters(testString)["a"], 1);
 assertEqual(countLetters(testString)["z"], undefined);
 assertEqual(countLetters(testEmpty)["a"], undefined);
