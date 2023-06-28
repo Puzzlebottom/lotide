@@ -10,7 +10,7 @@ const countOnly = (allItems, itemsToCount) => {
   let result = {};
   const keys = Object.keys(itemsToCount);
   for (let item of allItems) {
-    if (keys.includes(item)) {
+    if (keys.includes(item) && itemsToCount[item]) {
       result[item] = result[item] ? result[item]++ : 1;
     }
   }
