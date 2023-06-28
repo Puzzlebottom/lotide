@@ -35,8 +35,8 @@ let short = [1, 2];
 let shorter = [1];
 let empty = [];
 
-console.log(assertArraysEqual(middle(even), [2, 3]));
-console.log(assertArraysEqual(middle(odd), [2]));
-console.log(assertArraysEqual(middle(short), []));
-console.log(assertArraysEqual(middle(shorter), []));
-console.log(assertArraysEqual(middle(empty), []));
+assertArraysEqual(middle(even), [2, 3]);
+assertArraysEqual(middle(odd), [2]);
+assertArraysEqual(middle(short), []);
+assertArraysEqual(middle(shorter), []);
+assertArraysEqual(middle(empty), []);
