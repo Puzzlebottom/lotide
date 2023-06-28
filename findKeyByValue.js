@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   console.log(`${status}${actual}${comparator}${expected}`);
 };
 
-const findKey = (object, value) => {
+const findKeyByValue = (object, value) => {
   let keys = Object.keys(object);
   for (let key of keys) {
     if (object[key] === value) {
@@ -24,9 +24,9 @@ let testObject = {
   star: null
 };
 
-assertEqual(findKey(testObject, "horse"), "sea");
-assertEqual(findKey(testObject, "fish"), "cat");
-assertEqual(findKey(testObject, null), "star");
-assertEqual(findKey(testObject, "monger"), undefined);
+assertEqual(findKeyByValue(testObject, "horse"), "sea");
+assertEqual(findKeyByValue(testObject, "fish"), "cat");
+assertEqual(findKeyByValue(testObject, null), "star");
+assertEqual(findKeyByValue(testObject, "monger"), undefined);
 
 
