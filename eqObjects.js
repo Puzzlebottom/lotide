@@ -1,15 +1,16 @@
 const assertEqual = require("./assertEqual");
-const eqArrays = require('./eqArrays');
+const eqArrays = require("./eqArrays");
 
 const XOR = (a, b) => (a || b) && !(a && b);
 
 const eqObjects = (object1, object2) => {
+  // primative case short circuit;
+  if (typeof object1 !== "object" && typeof object2 !== "object") return object1 === object2;
+
   let keys1 = Object.keys(object1);
   let keys2 = Object.keys(object2);
 
   if (keys1.length !== keys2.length) return false;
-
-  let result = true;
 
   for (let key of keys1) {
     let value1 = object1[key];
@@ -18,27 +19,22 @@ const eqObjects = (object1, object2) => {
     //undefined value case
     if (value1 === undefined) throw new Error("Cannot compare objects containing values of undefined");
 
-    //primitive case
-    if (value1 === value2) continue;
-
-    //missing key case ()
+    //missing key case
     if (!value2) return false;
 
     //only one array case;
     if (XOR(Array.isArray(value1), Array.isArray(value2))) return false;
 
     //two array case
-    if (Array.isArray(value1) && Array.isArray(value2)) {
-      result = eqArrays(value1, value2);
-    }
+    if (Array.isArray(value1) && Array.isArray(value2) && !eqArrays(value1, value2)) return false;
 
     //recursive case
-    result = eqObjects(value1, value2);
+    if (!eqObjects(value1, value2)) return false;
+
   }
-  return result;
+  return true;
 };
 
-module.exports = eqObjects;
 
 const cat1 = { name: "Breakfast", attack: "floppiness" };
 const cat2 = { name: "Vada", attack: "seismic slam" };
@@ -87,3 +83,5 @@ const nestedObject3 = {
 
 assertEqual(eqObjects(nestedObject1, nestedObject2), true);
 assertEqual(eqObjects(nestedObject1, nestedObject3), false);
+
+module.exports = eqObjects;
