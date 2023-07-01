@@ -10,7 +10,7 @@ const assertArraysEqual = function(actualArray, expectedArray) {
 
 module.exports = assertArraysEqual;
 
-assertArraysEqual([1, 2, 3], [1, 2, 3]); // => true
-assertArraysEqual([], []); // => true
-assertArraysEqual([1, 2, 3], ["1", "2", "3"]); // => false
-assertArraysEqual([1, 2, 3], [4, 5, 6]); // => false
+// assertArraysEqual([1, 2, 3], [1, 2, 3]); // => true
+// assertArraysEqual([], []); // => true
+// assertArraysEqual([1, 2, 3], ["1", "2", "3"]); // => false
+// assertArraysEqual([1, 2, 3], [4, 5, 6]); // => false

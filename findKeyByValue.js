@@ -11,18 +11,18 @@ const findKeyByValue = (object, value) => {
 
 module.exports = findKeyByValue;
 
-let testObject = {
-  sea: "horse",
-  cat: "fish",
-  dog: "fish",
-  lion: "fish",
-  parrot: "fish",
-  star: null
-};
+// let testObject = {
+//   sea: "horse",
+//   cat: "fish",
+//   dog: "fish",
+//   lion: "fish",
+//   parrot: "fish",
+//   star: null
+// };
 
-assertEqual(findKeyByValue(testObject, "horse"), "sea");
-assertEqual(findKeyByValue(testObject, "fish"), "cat");
-assertEqual(findKeyByValue(testObject, null), "star");
-assertEqual(findKeyByValue(testObject, "monger"), undefined);
+// assertEqual(findKeyByValue(testObject, "horse"), "sea");
+// assertEqual(findKeyByValue(testObject, "fish"), "cat");
+// assertEqual(findKeyByValue(testObject, null), "star");
+// assertEqual(findKeyByValue(testObject, "monger"), undefined);
 
 

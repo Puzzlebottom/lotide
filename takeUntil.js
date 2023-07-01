@@ -19,14 +19,14 @@ const takeUntil = (array, predicate) => {
 
 module.exports = takeUntil;
 
-const testArray = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-const failAll = x => x !== x;
-const failNone = x => x === x;
-const failSome = x => x < 0;
+// const testArray = [1, 2, 5, 7, 2, -1, 2, 4, 5];
+// const failAll = x => x !== x;
+// const failNone = x => x === x;
+// const failSome = x => x < 0;
 
-assertArraysEqual(takeUntil([], failAll), []);
-assertArraysEqual(takeUntil([], failNone), []);
-assertArraysEqual(takeUntil(testArray, failAll), [1, 2, 5, 7, 2, -1, 2, 4, 5]);
-assertArraysEqual(takeUntil(testArray, failNone), []);
-assertArraysEqual(takeUntil(testArray, failSome), [1, 2, 5, 7, 2]);
+// assertArraysEqual(takeUntil([], failAll), []);
+// assertArraysEqual(takeUntil([], failNone), []);
+// assertArraysEqual(takeUntil(testArray, failAll), [1, 2, 5, 7, 2, -1, 2, 4, 5]);
+// assertArraysEqual(takeUntil(testArray, failNone), []);
+// assertArraysEqual(takeUntil(testArray, failSome), [1, 2, 5, 7, 2]);
 

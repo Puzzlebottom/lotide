@@ -19,14 +19,14 @@ const middle = (array) => {
 
 module.exports = middle;
 
-let even = [1, 2, 3, 4];
-let odd = [1, 2, 3];
-let short = [1, 2];
-let shorter = [1];
-let empty = [];
+// let even = [1, 2, 3, 4];
+// let odd = [1, 2, 3];
+// let short = [1, 2];
+// let shorter = [1];
+// let empty = [];
 
-assertArraysEqual(middle(even), [2, 3]);
-assertArraysEqual(middle(odd), [2]);
-assertArraysEqual(middle(short), []);
-assertArraysEqual(middle(shorter), []);
-assertArraysEqual(middle(empty), []);
+// assertArraysEqual(middle(even), [2, 3]);
+// assertArraysEqual(middle(odd), [2]);
+// assertArraysEqual(middle(short), []);
+// assertArraysEqual(middle(shorter), []);
+// assertArraysEqual(middle(empty), []);

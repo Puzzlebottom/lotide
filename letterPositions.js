@@ -14,20 +14,20 @@ const letterPositions = function(sentence) {
 
 module.exports = letterPositions;
 
-let testString = "hello";
-let testStringResult = letterPositions(testString);
-let withSpaces = "so many spaces";
-let withSpacesResult = letterPositions(withSpaces);
-let withCapitals = "Bobby";
-let withCapitalsResult = letterPositions(withCapitals);
+// let testString = "hello";
+// let testStringResult = letterPositions(testString);
+// let withSpaces = "so many spaces";
+// let withSpacesResult = letterPositions(withSpaces);
+// let withCapitals = "Bobby";
+// let withCapitalsResult = letterPositions(withCapitals);
 
-assertArraysEqual(testStringResult["h"], [0]);
-assertArraysEqual(testStringResult["e"], [1]);
-assertArraysEqual(testStringResult["l"], [2, 3]);
-assertArraysEqual(testStringResult["o"], [4]);
-assertEqual(withSpacesResult["M"], undefined);
-assertEqual(withSpacesResult[" "], undefined);
-assertEqual(withCapitalsResult["B"], undefined);
-assertArraysEqual(withCapitalsResult["b"], [0, 2, 3]);
+// assertArraysEqual(testStringResult["h"], [0]);
+// assertArraysEqual(testStringResult["e"], [1]);
+// assertArraysEqual(testStringResult["l"], [2, 3]);
+// assertArraysEqual(testStringResult["o"], [4]);
+// assertEqual(withSpacesResult["M"], undefined);
+// assertEqual(withSpacesResult[" "], undefined);
+// assertEqual(withCapitalsResult["B"], undefined);
+// assertArraysEqual(withCapitalsResult["b"], [0, 2, 3]);
 
 

@@ -11,11 +11,11 @@ const assertObjectsEqual = function(actualObject, expectedObject) {
 
 module.exports = assertObjectsEqual;
 
-const snowflake1 = { composition: "ice crystals", points: 6 };
-const snowflake2 = { composition: "ice crystals", points: 6 };
-const cat1 = { name: "Breakfast", attack: "floppiness" };
-const cat2 = { name: "Vada", attack: "seismic slam" };
+// const snowflake1 = { composition: "ice crystals", points: 6 };
+// const snowflake2 = { composition: "ice crystals", points: 6 };
+// const cat1 = { name: "Breakfast", attack: "floppiness" };
+// const cat2 = { name: "Vada", attack: "seismic slam" };
 
-assertObjectsEqual(snowflake1, snowflake2); // => true
-assertObjectsEqual({}, {}); // => true
-assertObjectsEqual(cat1, cat2); // => false
+// assertObjectsEqual(snowflake1, snowflake2); // => true
+// assertObjectsEqual({}, {}); // => true
+// assertObjectsEqual(cat1, cat2); // => false

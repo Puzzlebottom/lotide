@@ -16,11 +16,11 @@ const map = (array, callback) => {
 
 module.exports = map;
 
-const captialized = ["GROUND", "CONTROL", "TO", "MAJOR", "TOM"];
-let stringArray = ["ground", "control", "to", "major", "tom"];
+// const captialized = ["GROUND", "CONTROL", "TO", "MAJOR", "TOM"];
+// let stringArray = ["ground", "control", "to", "major", "tom"];
 
-let upper = (string) => string.toUpperCase();
+// let upper = (string) => string.toUpperCase();
 
-assertArraysEqual(map(stringArray, upper), captialized);
-assertArraysEqual(map([], upper), []);
-assertArraysEqual(map(stringArray), ["ground", "control", "to", "major", "tom"]);
+// assertArraysEqual(map(stringArray, upper), captialized);
+// assertArraysEqual(map([], upper), []);
+// assertArraysEqual(map(stringArray), ["ground", "control", "to", "major", "tom"]);
