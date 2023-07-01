@@ -15,6 +15,8 @@ const countLetters = (string) => {
   return result;
 };
 
+module.export = countLetters;
+
 let testString = "Candy corn";
 let testEmpty = "";
 let testNumber = 1234567890;

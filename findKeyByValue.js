@@ -15,6 +15,8 @@ const findKeyByValue = (object, value) => {
   }
 };
 
+module.export = findKeyByValue;
+
 let testObject = {
   sea: "horse",
   cat: "fish",

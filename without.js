@@ -27,6 +27,8 @@ const without = (source, itemsToRemove) => {
   return arrayWithout;
 };
 
+module.export = without;
+
 const words = ["abecedarian", "brobdingnagian", "cassandraic"];
 const wordsWithout = without(words, ["brobdingnagian"]);
 const numbersWithout = without([1, 2, 3], [3]);

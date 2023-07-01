@@ -37,8 +37,10 @@ const eqObjects = (object1, object2) => {
   return result;
 };
 
-const cat1 = { name: "Breakfast", attack: "floppiness"};
-const cat2 = { name: "Vada", attack: "seismic slam"};
+module.export = eqObjects;
+
+const cat1 = { name: "Breakfast", attack: "floppiness" };
+const cat2 = { name: "Vada", attack: "seismic slam" };
 assertEqual(eqObjects(cat1, cat2), false);
 
 const snowflake1 = { composition: "ice crystals", points: 6 };
@@ -47,7 +49,7 @@ assertEqual(eqObjects(snowflake1, snowflake2), true);
 
 const multiColorShirtObject = { colors: ["red", "blue"], size: "medium" };
 const anotherMultiColorShirtObject = { size: "medium", colors: ["red", "blue"] };
-assertEqual(eqObjects(multiColorShirtObject  , anotherMultiColorShirtObject), true);
+assertEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
 
 const longSleeveMultiColorShirtObject = { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
-assertEqual(eqObjects(multiColorShirtObject  , longSleeveMultiColorShirtObject), false);
+assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);

@@ -14,12 +14,14 @@ const findKey = (object, predicate) => {
   }
 };
 
-let testObject = {name: "Breakfast", trait: "floppiness", attack : "face-rubs"};
+let testObject = { name: "Breakfast", trait: "floppiness", attack: "face-rubs" };
 let testObject2 = {
-  pizza: {topping: "cheese"},
-  sundae: {topping: "chocolate sauce"},
-  christmasTree: {topping: "star"}
+  pizza: { topping: "cheese" },
+  sundae: { topping: "chocolate sauce" },
+  christmasTree: { topping: "star" }
 };
+
+module.export = findKey;
 
 assertEqual(findKey(testObject, x => x === "Breakfast"), "name");
 assertEqual(findKey(testObject2, x => x.topping === "chocolate sauce"), "sundae");

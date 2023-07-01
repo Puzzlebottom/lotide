@@ -25,11 +25,13 @@ const map = (array, callback) => {
   if (!Array.isArray(array)) return console.log(invalidArgArray);
   if (!callback) return [...array];
   if (!isFunction(callback)) return console.log(invalidArgFunction);
-  
+
   let result = [];
   for (let element of array) result.push(callback(element));
   return result;
 };
+
+module.export = map;
 
 const captialized = ["GROUND", "CONTROL", "TO", "MAJOR", "TOM"];
 let stringArray = ["ground", "control", "to", "major", "tom"];

@@ -14,6 +14,8 @@ const tail = function(array) {
   return tail;
 };
 
+module.export = tail;
+
 const array = [1, 2, 3];
 let arrayTail = tail(array);
 console.log(assertEqual(array.length, 3));

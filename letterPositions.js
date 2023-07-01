@@ -34,6 +34,8 @@ const letterPositions = function(sentence) {
   return results;
 };
 
+module.export = letterPositions;
+
 let testString = "hello";
 let testStringResult = letterPositions(testString);
 let withSpaces = "so many spaces";
