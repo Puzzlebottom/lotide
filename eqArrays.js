@@ -1,10 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let isEqual = actual === expected;
-  const status = isEqual ? "👍 Assertion Passed: " : "👎 Assertion Failed: ";
-  const comparator = isEqual ? " === " : " !== ";
-
-  console.log(`${status}${actual}${comparator}${expected}`);
-};
+const assertEqual = require("./assertEqual");
 
 const eqArrays = (array1, array2) => {
   if (array1.length !== array2.length) return false;

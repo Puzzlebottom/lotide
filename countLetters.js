@@ -1,10 +1,4 @@
-const assertEqual = function(actual, expected) {
-  let isEqual = actual === expected;
-  const status = isEqual ? "👍 Assertion Passed: " : "👎 Assertion Failed: ";
-  const comparator = isEqual ? " === " : " !== ";
-
-  console.log(`${status}${actual}${comparator}${expected}`);
-};
+const assertEqual = require("./assertEqual");
 
 const countLetters = (string) => {
   if (typeof string !== "string") return console.log(`These ${typeof string}s ain't no good fer countin'! How's about you gimme a string instead?`);

@@ -1,22 +1,5 @@
-const eqArrays = (array1, array2) => {
-  if (array1.length !== array2.length) return false;
-  for (let i = 0; i < array1.length; i++) {
-    if (array1[i] !== array2[i]) return false;
-  }
-  return true;
-};
-
-const assertArraysEqual = function(actualArray, expectedArray) {
-  let isEqual = eqArrays(actualArray, expectedArray);
-  const status = isEqual ? "👍 Assertion Passed: " : "👎 Assertion Failed: ";
-  const comparator = isEqual ? " === " : " !== ";
-
-  console.log(`${status}[${actualArray}]${comparator}[${expectedArray}]`);
-};
-
-const isFunction = (functionToCheck) => {
-  return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
-};
+const assertArraysEqual = require("./assertArraysEqual");
+const isFunction = require("./isFunction");
 
 const takeUntil = (array, predicate) => {
   if (array.length === 0) return [];
