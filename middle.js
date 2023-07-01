@@ -31,7 +31,7 @@ const middle = (array) => {
   return middle;
 };
 
-module.export = middle;
+module.exports = middle;
 
 let even = [1, 2, 3, 4];
 let odd = [1, 2, 3];

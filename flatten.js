@@ -24,7 +24,7 @@ const flatten = (array) => {
   return flatArray;
 };
 
-module.export = flatten;
+module.exports = flatten;
 
 assertArraysEqual(flatten([1, [2, 3]]), [1, 2, 3]);
 assertArraysEqual(flatten([[1], "more", ["time"]]), [1, "more", "time"]);

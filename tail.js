@@ -14,7 +14,7 @@ const tail = function(array) {
   return tail;
 };
 
-module.export = tail;
+module.exports = tail;
 
 const array = [1, 2, 3];
 let arrayTail = tail(array);

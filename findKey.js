@@ -21,7 +21,7 @@ let testObject2 = {
   christmasTree: { topping: "star" }
 };
 
-module.export = findKey;
+module.exports = findKey;
 
 assertEqual(findKey(testObject, x => x === "Breakfast"), "name");
 assertEqual(findKey(testObject2, x => x.topping === "chocolate sauce"), "sundae");

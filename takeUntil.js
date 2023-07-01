@@ -34,7 +34,7 @@ const takeUntil = (array, predicate) => {
   return result;
 };
 
-module.export = takeUntil;
+module.exports = takeUntil;
 
 const testArray = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const failAll = x => x !== x;

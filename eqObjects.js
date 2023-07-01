@@ -31,7 +31,7 @@ const eqObjects = (object1, object2) => {
   return result;
 };
 
-module.export = eqObjects;
+module.exports = eqObjects;
 
 const cat1 = { name: "Breakfast", attack: "floppiness" };
 const cat2 = { name: "Vada", attack: "seismic slam" };

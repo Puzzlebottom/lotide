@@ -31,7 +31,7 @@ const map = (array, callback) => {
   return result;
 };
 
-module.export = map;
+module.exports = map;
 
 const captialized = ["GROUND", "CONTROL", "TO", "MAJOR", "TOM"];
 let stringArray = ["ground", "control", "to", "major", "tom"];
