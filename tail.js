@@ -1,6 +1,8 @@
-const assertEqual = require("./assertEqual");
-
 const tail = function(array) {
+  if (!array) throw new Error("tail() requires an array to be passed as an argument");
+  if (arguments.length > 1) throw new Error("too many arguments");
+  if (array.length === 0) return undefined;
+
   let tail = [];
   for (let i = 1; i < array.length; i++) {
     tail.push(array[i]);
@@ -9,9 +11,3 @@ const tail = function(array) {
 };
 
 module.exports = tail;
-
-// const array = [1, 2, 3];
-// let arrayTail = tail(array);
-// console.log(assertEqual(array.length, 3));
-// console.log(assertEqual(arrayTail.length, 2));
-// console.log(assertEqual(arrayTail[0], 2));
