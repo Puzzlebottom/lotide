@@ -1,10 +1,12 @@
-const assertArraysEqual = require("./assertArraysEqual");
-
 const isEven = (integer) => {
   return integer % 2 === 0;
 };
 
-const middle = (array) => {
+const middle = function(array) {
+  if (!array) throw new Error("middle() requires an array to be passed as an argument");
+  if (arguments.length > 1) throw new Error("too many arguments");
+  if (array.length === 0) return undefined;
+
   let middle = [];
   if (array.length < 3) return middle;
 
@@ -18,15 +20,3 @@ const middle = (array) => {
 };
 
 module.exports = middle;
-
-// let even = [1, 2, 3, 4];
-// let odd = [1, 2, 3];
-// let short = [1, 2];
-// let shorter = [1];
-// let empty = [];
-
-// assertArraysEqual(middle(even), [2, 3]);
-// assertArraysEqual(middle(odd), [2]);
-// assertArraysEqual(middle(short), []);
-// assertArraysEqual(middle(shorter), []);
-// assertArraysEqual(middle(empty), []);
