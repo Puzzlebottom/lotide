@@ -14,6 +14,8 @@ const assertArraysEqual = function(actualArray, expectedArray) {
   console.log(`${status}[${actualArray}]${comparator}[${expectedArray}]`);
 };
 
+module.exports = assertArraysEqual;
+
 assertArraysEqual([1, 2, 3], [1, 2, 3]); // => true
 assertArraysEqual([], []); // => true
 assertArraysEqual([1, 2, 3], ["1", "2", "3"]); // => false

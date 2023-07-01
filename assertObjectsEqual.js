@@ -38,10 +38,12 @@ const assertObjectsEqual = function(actualObject, expectedObject) {
   console.log(`${status}[${inspect(actualObject)}]${comparator}[${inspect(expectedObject)}]`);
 };
 
+module.exports = assertObjectsEqual;
+
 const snowflake1 = { composition: "ice crystals", points: 6 };
 const snowflake2 = { composition: "ice crystals", points: 6 };
-const cat1 = { name: "Breakfast", attack: "floppiness"};
-const cat2 = { name: "Vada", attack: "seismic slam"};
+const cat1 = { name: "Breakfast", attack: "floppiness" };
+const cat2 = { name: "Vada", attack: "seismic slam" };
 
 assertObjectsEqual(snowflake1, snowflake2); // => true
 assertObjectsEqual({}, {}); // => true

@@ -6,5 +6,7 @@ const assertEqual = function(actual, expected) {
   console.log(`${status}${actual}${comparator}${expected}`);
 };
 
+module.exports = assertEqual;
+
 assertEqual("lighthouse Labs", "Bootcamp");
 assertEqual(1, 1);
