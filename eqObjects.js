@@ -5,7 +5,7 @@ const XOR = (a, b) => (a || b) && !(a && b);
 
 const eqObjects = (object1, object2) => {
   // primative case short circuit;
-  if (typeof object1 !== "object" && typeof object2 !== "object") return object1 === object2;
+  if (typeof object1 !== "object" || typeof object2 !== "object") return object1 === object2;
 
   let keys1 = Object.keys(object1);
   let keys2 = Object.keys(object2);
