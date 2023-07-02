@@ -35,39 +35,32 @@ const eqObjects = (object1, object2) => {
   return true;
 };
 
-const eqArrays = (array1, array2) => {
-  if (array1.length !== array2.length) return false;
 
-  // primative case short circuit;
-  if (typeof array1 !== "object" || typeof array2 !== "object") return array1 === array2;
-
-  for (let i = 0; i < array1.length; i++) {
-    let element1 = array1[i];
-    let element2 = array2[i];
-
-    //only one array case;
-    if (XOR(Array.isArray(element1), Array.isArray(element2))) return false;
-
-    //two array case (recursive)
-    if (Array.isArray(element1) && Array.isArray(element2) && eqArrays(element1, element2)) continue;
-
-    //non-array object case
-    if (!eqObjects(element1, element2)) return false;
-
-    //primative case;
-    if (element1 !== element2) return false;
+const eqArrays = (arr1, arr2, i = 0) => {
+  if (i === arr1.length && i === arr2.length) {
+    return true;
   }
 
-  //happy path;
-  return true;
-};
+  let element1 = arr1[i];
+  let element2 = arr2[i];
+  let currentState = true;
 
+  if (Array.isArray(element1) && Array.isArray(element2)) {
+    currentState = currentState && eqArrays(element1, element2, 0);
+  } else if (typeof element1 === "object" && typeof element2 === "object") {
+    currentState = currentState && eqObjects(element1, element2);
+  } else if (element1 !== element2) {
+    return false;
+  }
+
+  return currentState && eqArrays(arr1, arr2, i + 1);
+};
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
-assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true);
+assertEqual(eqArrays([[2, 3], {}], [[2, 3], {}]), true);
 assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false);
 assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);
 
