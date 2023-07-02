@@ -1,38 +1,30 @@
 const assertEqual = require("./assertEqual");
-// const eqObjects = require("./eqObjects");
 
-const XOR = (a, b) => (a || b) && !(a && b);
+const eqObjects = (obj1, obj2, i = 0) => {
 
-const eqObjects = (object1, object2) => {
-  // primative case short circuit;
-  if (typeof object1 !== "object" || typeof object2 !== "object") return object1 === object2;
+  let keys1 = Object.keys(obj1);
+  let keys2 = Object.keys(obj2);
 
-  let keys1 = Object.keys(object1);
-  let keys2 = Object.keys(object2);
-
-  if (keys1.length !== keys2.length) return false;
-
-  for (let key of keys1) {
-    let value1 = object1[key];
-    let value2 = object2[key];
-
-    //undefined value case
-    if (value1 === undefined) throw new Error("Cannot compare objects containing values of undefined");
-
-    //missing key case
-    if (!value2) return false;
-
-    //only one array case;
-    if (XOR(Array.isArray(value1), Array.isArray(value2))) return false;
-
-    //two array case
-    if (Array.isArray(value1) && Array.isArray(value2) && !eqArrays(value1, value2)) return false;
-
-    //recursive case
-    if (!eqObjects(value1, value2)) return false;
-
+  if (i === keys1.length && i === keys2.length) {
+    return true;
   }
-  return true;
+
+  let key = keys1[i];
+  let value1 = obj1[key];
+  let value2 = obj2[key];
+  let currentState = true;
+
+  if (!value2) return false;
+
+  if (Array.isArray(value1) && Array.isArray(value2)) {
+    currentState = currentState && eqArrays(value1, value2, 0);
+  } else if (typeof value1 === "object" && typeof value2 === "object") {
+    currentState = currentState && eqObjects(value1, value2);
+  } else if (value1 !== value2) {
+    return false;
+  }
+
+  return currentState && eqObjects(obj1, obj2, i + 1);
 };
 
 
