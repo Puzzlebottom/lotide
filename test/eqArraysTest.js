@@ -1,6 +1,5 @@
 const { assert } = require("chai");
 const eqArrays = require("../eqArrays");
-const assertEqual = require("../assertEqual");
 
 describe('eqArrays when it is given invalid input', function() {
   it('should throw an error when passed less than two arguments', function() {

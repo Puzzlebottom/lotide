@@ -1,5 +1,3 @@
-const assertEqual = require("./assertEqual");
-
 const eqObjects = (obj1, obj2, i = 0) => {
 
   let keys1 = Object.keys(obj1);
@@ -52,13 +50,5 @@ const eqArrays = function(arr1, arr2, i = 0) {
 
   return currentState && eqArrays(arr1, arr2, i + 1);
 };
-
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-// assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
-// assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
-// assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
-// assertEqual(eqArrays([[2, 3], {}], [[2, 3], {}]), true);
-// assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false);
-// assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);
 
 module.exports = eqArrays;
