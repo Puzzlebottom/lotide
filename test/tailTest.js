@@ -3,7 +3,7 @@ const assert = chai.assert;
 
 const tail = require('../tail');
 
-describe('tail', function() {
+describe('tail when it is given invalid input', function() {
 
   it('should throw an error when passed no input', function() {
     assert.throws(tail, "tail() requires an array to be passed as an argument");
@@ -20,6 +20,14 @@ describe('tail', function() {
     const input = [1];
     const expectedOutput = [];
     assert.deepEqual(tail(input), expectedOutput);
+  });
+
+});
+
+describe('tail when it is given valid input', () => {
+  it('should return an array', function() {
+    const input = [1, 2, 3];
+    assert.isArray(tail(input));
   });
   it('should return an array containing all elements of the input except the first', function() {
     const input = [1, 2, 3];
