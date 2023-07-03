@@ -3,13 +3,16 @@ const assert = chai.assert;
 
 const middle = require('../middle');
 
-describe('middle', function() {
+describe('middle when it is given invalid arguments', function() {
   it('should throw an error when passed no input', function() {
     assert.throws(middle, "middle() requires an array to be passed as an argument");
   });
   it('should throw an error when passed more than one argument', function() {
     assert.throws(() => middle([1], [2]), "too many arguments");
   });
+});
+
+describe('middle when it is given valid arguments', function() {
   it('should return undefined when passed an empty array', function() {
     const input = [];
     const expectedOutput = undefined;
