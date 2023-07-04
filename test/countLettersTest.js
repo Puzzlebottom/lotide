@@ -2,7 +2,6 @@ const chai = require('chai');
 const assert = chai.assert;
 
 const countLetters = require('../countLetters');
-const assertEqual = require('../assertEqual');
 
 describe('countLetters when it receives invalid output', function() {
   it('should throw an error if it receives the wrong number of arguments', function() {
