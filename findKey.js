@@ -1,6 +1,10 @@
-const assertEqual = require("./assertEqual");
+const isFunction = require("./isFunction");
 
-const findKey = (object, predicate) => {
+const findKey = function(object, predicate) {
+  if (arguments.length < 2) throw new Error("Not enough arguments! findKey() requires 2 arguments: an object, and a predicate callback which returns a boolean.");
+  if (arguments.length > 2) throw new Error("Too many arguments! findKey() requires 2 arguments: an object, and a predicate callback which returns a boolean.");
+  if (typeof object !== "object" || !isFunction(predicate)) throw new Error("Wrong argument types! findKey() requires 2 arguments: an object, and a predicate callback which returns a boolean.");
+
   let keys = Object.keys(object);
   for (let i = 0; i < keys.length; i++) {
     let kvPair = object[keys[i]];
@@ -9,17 +13,3 @@ const findKey = (object, predicate) => {
 };
 
 module.exports = findKey;
-
-// let testObject = { name: "Breakfast", trait: "floppiness", attack: "face-rubs" };
-// let testObject2 = {
-//   pizza: { topping: "cheese" },
-//   sundae: { topping: "chocolate sauce" },
-//   christmasTree: { topping: "star" }
-// };
-
-
-// assertEqual(findKey(testObject, x => x === "Breakfast"), "name");
-// assertEqual(findKey(testObject2, x => x.topping === "chocolate sauce"), "sundae");
-// assertEqual(findKey(testObject, x => x === "Vada"), undefined);
-// assertEqual(findKey({}, x => x === x), undefined);
-// assertEqual(findKey({}, x => x !== x), undefined);
