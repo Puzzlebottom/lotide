@@ -16,7 +16,7 @@ const eqObjects = (obj1, obj2, i = 0) => {
 
   if (Array.isArray(value1) && Array.isArray(value2)) {
     currentState = currentState && eqArrays(value1, value2, 0);
-  } else if (typeof value1 === "object" && typeof value2 === "object") {
+  } else if (typeof value1 === 'object' && typeof value2 === 'object') {
     currentState = currentState && eqObjects(value1, value2);
   } else if (value1 !== value2) {
     return false;
@@ -28,9 +28,9 @@ const eqObjects = (obj1, obj2, i = 0) => {
 
 const eqArrays = function(arr1, arr2, i = 0) {
 
-  if (!arr1 || !arr2) throw new Error("eqArrays() requires a pair of arrays to be passed as arguments");
-  if (arguments.length > 3) throw new Error("too many arguments");
-  if (arguments[2] && isNaN(arguments[2])) throw new Error("the 3rd argument of eqArray() is used for its recursive case only");
+  if (!arr1 || !arr2) throw new Error('eqArrays() requires a pair of arrays to be passed as arguments');
+  if (arguments.length > 3) throw new Error('too many arguments');
+  if (arguments[2] && isNaN(arguments[2])) throw new Error('the 3rd argument of eqArray() is used for its recursive case only');
 
   if (i === arr1.length && i === arr2.length) {
     return true;
@@ -42,7 +42,7 @@ const eqArrays = function(arr1, arr2, i = 0) {
 
   if (Array.isArray(element1) && Array.isArray(element2)) {
     currentState = currentState && eqArrays(element1, element2, 0);
-  } else if (typeof element1 === "object" && typeof element2 === "object") {
+  } else if (typeof element1 === 'object' && typeof element2 === 'object') {
     currentState = currentState && eqObjects(element1, element2);
   } else if (element1 !== element2) {
     return false;

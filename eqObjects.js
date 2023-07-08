@@ -1,7 +1,12 @@
-const assertEqual = require("./assertEqual");
-const eqArrays = require("./eqArrays");
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
-const eqObjects = (obj1, obj2, i = 0) => {
+const eqObjects = function(obj1, obj2, i = 0) {
+
+  if (!obj1 || !obj2) throw new Error('eqObjects() requires a pair of objects to be passed as arguments');
+  if (arguments.length > 3) throw new Error('too many arguments');
+  if (arguments[2] && isNaN(arguments[2])) throw new Error('the 3rd argument of eqObjects() is used for its recursive case only');
+
 
   let keys1 = Object.keys(obj1);
   let keys2 = Object.keys(obj2);
@@ -19,7 +24,7 @@ const eqObjects = (obj1, obj2, i = 0) => {
 
   if (Array.isArray(value1) && Array.isArray(value2)) {
     currentState = currentState && eqArrays(value1, value2, 0);
-  } else if (typeof value1 === "object" && typeof value2 === "object") {
+  } else if (typeof value1 === 'object' && typeof value2 === 'object') {
     currentState = currentState && eqObjects(value1, value2);
   } else if (value1 !== value2) {
     return false;
@@ -29,48 +34,48 @@ const eqObjects = (obj1, obj2, i = 0) => {
 };
 
 
-const cat1 = { name: "Breakfast", attack: "floppiness" };
-const cat2 = { name: "Vada", attack: "seismic slam" };
+const cat1 = { 'name': 'Breakfast', 'attack': 'floppiness' };
+const cat2 = { 'name': 'Vada', 'attack': 'seismic slam' };
 assertEqual(eqObjects(cat1, cat2), false);
 
-const snowflake1 = { composition: "ice crystals", points: 6 };
-const snowflake2 = { composition: "ice crystals", points: 6 };
+const snowflake1 = { 'composition': 'ice crystals', 'points': 6 };
+const snowflake2 = { 'composition': 'ice crystals', 'points': 6 };
 assertEqual(eqObjects(snowflake1, snowflake2), true);
 
-const multiColorShirtObject = { colors: ["red", "blue"], size: "medium" };
-const anotherMultiColorShirtObject = { size: "medium", colors: ["red", "blue"] };
+const multiColorShirtObject = { 'colors': ['red', 'blue'], 'size': 'medium' };
+const anotherMultiColorShirtObject = { 'size': 'medium', 'colors': ['red', 'blue'] };
 assertEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
 
-const longSleeveMultiColorShirtObject = { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
+const longSleeveMultiColorShirtObject = { 'size': 'medium', 'colors': ['red', 'blue'], 'sleeveLength': 'long' };
 assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);
 
 const nestedObject1 = {
-  key1: {
-    keyA: ["A"],
-    keyB: "B"
+  'key1': {
+    'keyA': ['A'],
+    'keyB': 'B'
   },
-  key2: {
-    keyA: "A",
-    keyB: "B"
+  'key2': {
+    'keyA': 'A',
+    'keyB': 'B'
   }
 };
 
 const nestedObject2 = {
-  key1: {
-    keyA: ["A"],
-    keyB: "B"
+  'key1': {
+    'keyA': ['A'],
+    'keyB': 'B'
   },
-  key2: {
-    keyA: "A",
-    keyB: "B"
+  'key2': {
+    'keyA': 'A',
+    'keyB': 'B'
   }
 };
 
 const nestedObject3 = {
-  key1: [],
-  key2: {
-    keyA: "A",
-    keyB: "B"
+  'key1': [],
+  'key2': {
+    'keyA': 'A',
+    'keyB': 'B'
   }
 };
 
