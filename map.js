@@ -1,12 +1,11 @@
 const { isFunction } = require('./isFunction');
 
-const map = (array, callback) => {
-  const invalidArgArray = 'map() requires you to provide an array as the first argument';
-  const invalidArgFunction = 'map() requires that the second argument be a valid function';
-  if (!array) return console.log(invalidArgArray);
-  if (!Array.isArray(array)) return console.log(invalidArgArray);
+const map = function(array, callback) {
+  if (arguments.length < 1) throw new Error('not enough arguments');
+  if (arguments.length > 2) throw new Error('too many arguments');
+  if (!Array.isArray(array) || callback && !isFunction(callback)) throw new Error('invalid argument type');
+
   if (!callback) return [...array];
-  if (!isFunction(callback)) return console.log(invalidArgFunction);
 
   let result = [];
   for (let element of array) result.push(callback(element));
