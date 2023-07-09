@@ -1,13 +1,13 @@
 const { isFunction } = require('./isFunction');
 
-const takeUntil = (array, predicate) => {
-  if (array.length === 0) return [];
-  let invalidArrayError = 'takeUntil() requires its first argument to be an array';
-  let invalidPredicateError = 'takeUntil() requires its second argument to be a callback which returns a boolean';
-  if (!array || !Array.isArray(array)) return console.log(invalidArrayError);
-  if (!predicate || !isFunction(predicate)) return console.log(invalidPredicateError);
+const takeUntil = function(array, predicate) {
+  if (arguments.length < 2) throw new Error('not enough arguments');
+  if (arguments.length > 2) throw new Error('too many arguments');
+  if (!Array.isArray(array) || !isFunction(predicate)) throw new Error('invalid argument type');
 
   let result = [];
+  if (array.length === 0) return [];
+
   for (let i = 0; i < array.length; i++) {
     if (predicate(array[i])) break;
     result.push(array[i]);
