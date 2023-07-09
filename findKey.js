@@ -12,4 +12,4 @@ const findKey = function(object, predicate) {
   }
 };
 
-module.exports = findKey;
+module.exports = { findKey };

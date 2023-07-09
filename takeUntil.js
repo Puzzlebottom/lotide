@@ -1,10 +1,9 @@
-const assertArraysEqual = require("./assertArraysEqual");
-const isFunction = require("./isFunction");
+const { isFunction } = require('./isFunction');
 
 const takeUntil = (array, predicate) => {
   if (array.length === 0) return [];
-  let invalidArrayError = "takeUntil() requires its first argument to be an array";
-  let invalidPredicateError = "takeUntil() requires its second argument to be a callback which returns a boolean";
+  let invalidArrayError = 'takeUntil() requires its first argument to be an array';
+  let invalidPredicateError = 'takeUntil() requires its second argument to be a callback which returns a boolean';
   if (!array || !Array.isArray(array)) return console.log(invalidArrayError);
   if (!predicate || !isFunction(predicate)) return console.log(invalidPredicateError);
 
@@ -17,16 +16,5 @@ const takeUntil = (array, predicate) => {
   return result;
 };
 
-module.exports = takeUntil;
-
-// const testArray = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-// const failAll = x => x !== x;
-// const failNone = x => x === x;
-// const failSome = x => x < 0;
-
-// assertArraysEqual(takeUntil([], failAll), []);
-// assertArraysEqual(takeUntil([], failNone), []);
-// assertArraysEqual(takeUntil(testArray, failAll), [1, 2, 5, 7, 2, -1, 2, 4, 5]);
-// assertArraysEqual(takeUntil(testArray, failNone), []);
-// assertArraysEqual(takeUntil(testArray, failSome), [1, 2, 5, 7, 2]);
+module.exports = { takeUntil };
 

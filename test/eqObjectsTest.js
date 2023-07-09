@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const eqObjects = require('../eqObjects');
+const { eqObjects } = require('../eqObjects');
 
 describe('eqObjects when it is given invalid input', function() {
   it('should throw an error when passed less than two arguments', function() {

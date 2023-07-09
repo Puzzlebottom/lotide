@@ -1,6 +1,8 @@
-const assertArraysEqual = require("./assertArraysEqual");
+const without = function(source, itemsToRemove) {
+  if (arguments.length < 2) throw new Error('not enough arguments');
+  if (arguments.length > 2) throw new Error('too many arguments');
+  if (!Array.isArray(source) || !Array.isArray(itemsToRemove)) throw new Error('invalid argument type');
 
-const without = (source, itemsToRemove) => {
   if (!source.length) return [];
   if (!itemsToRemove.length) return [...source];
 
@@ -13,18 +15,4 @@ const without = (source, itemsToRemove) => {
   return arrayWithout;
 };
 
-module.exports = without;
-
-// const words = ["abecedarian", "brobdingnagian", "cassandraic"];
-// const wordsWithout = without(words, ["brobdingnagian"]);
-// const numbersWithout = without([1, 2, 3], [3]);
-// const numberStringsWithout = without(["1", "2", "3"], [1, 2, "3"]);
-// const emptySource = without([], ["deconstructivism"]);
-// const emptyItemsToRemove = without(["elephantiasis"], []);
-
-// assertArraysEqual(wordsWithout, ["abecedarian", "cassandraic"]);
-// assertArraysEqual(words, ["abecedarian", "brobdingnagian", "cassandraic"]);
-// assertArraysEqual(numbersWithout, [1, 2]);
-// assertArraysEqual(numberStringsWithout, ["1", "2"]);
-// assertArraysEqual(emptySource, []);
-// assertArraysEqual(emptyItemsToRemove, ["elephantiasis"]);
+module.exports = { without };

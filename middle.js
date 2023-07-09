@@ -3,8 +3,8 @@ const isEven = (integer) => {
 };
 
 const middle = function(array) {
-  if (!array) throw new Error("middle() requires an array to be passed as an argument");
-  if (arguments.length > 1) throw new Error("too many arguments");
+  if (!array) throw new Error('middle() requires an array to be passed as an argument');
+  if (arguments.length > 1) throw new Error('too many arguments');
   if (array.length === 0) return undefined;
 
   let middle = [];
@@ -19,4 +19,4 @@ const middle = function(array) {
   return middle;
 };
 
-module.exports = middle;
+module.exports = { middle };

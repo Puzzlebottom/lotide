@@ -51,4 +51,4 @@ const eqArrays = function(arr1, arr2, i = 0) {
   return currentState && eqArrays(arr1, arr2, i + 1);
 };
 
-module.exports = eqArrays;
+module.exports = { eqArrays };

@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const findKey = require('../findKey');
+const { findKey } = require('../findKey');
 
 describe('findKey when it receives invalid input', function() {
   it('throws an error if it receives the wrong number of arguments', function() {

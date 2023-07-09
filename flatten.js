@@ -14,12 +14,6 @@ const flatten = function(inputArray, outputArray = [], index = 0) {
   flatten(inputArray, outputArray, index + 1);
 
   return outputArray;
-
-  // let flatArray = [];
-  // for (let element of array) {
-  //   flatArray = Array.isArray(element) ? [...flatArray, flatten(element)] : [...flatArray, element];
-  // }
-  // return flatArray;
 };
 
 module.exports = { flatten };

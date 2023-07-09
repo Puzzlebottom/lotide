@@ -1,14 +1,12 @@
-const chai = require('chai');
-const assert = chai.assert;
-
-const tail = require('../tail');
+const { assert } = require('chai');
+const { tail } = require('../tail');
 
 describe('tail when it is given invalid input', function() {
   it('should throw an error when passed no input', function() {
-    assert.throws(tail, "tail() requires an array to be passed as an argument");
+    assert.throws(tail, 'tail() requires an array to be passed as an argument');
   });
   it('should throw an error when passed more than one argument', function() {
-    assert.throws(() => tail([1], [2]), "too many arguments");
+    assert.throws(() => tail([1], [2]), 'too many arguments');
   });
 });
 
