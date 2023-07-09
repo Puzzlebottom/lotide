@@ -1,15 +1,25 @@
-const assertArraysEqual = require("./assertArraysEqual");
+const flatten = function(inputArray, outputArray = [], index = 0) {
+  if (arguments.length < 1) throw new Error('not enough arguments');
+  if (arguments.length > 3) throw new Error('too many arguments');
+  if (!Array.isArray(inputArray)) throw new Error('invalid argument type');
 
-const flatten = (array) => {
-  let flatArray = [];
-  for (let element of array) {
-    flatArray = Array.isArray(element) ? [...flatArray, ...element] : [...flatArray, element];
+  if (index >= inputArray.length) return;
+
+  if (Array.isArray(inputArray[index])) {
+    flatten(inputArray[index], outputArray, 0);
+  } else {
+    outputArray.push(inputArray[index]);
   }
-  return flatArray;
+
+  flatten(inputArray, outputArray, index + 1);
+
+  return outputArray;
+
+  // let flatArray = [];
+  // for (let element of array) {
+  //   flatArray = Array.isArray(element) ? [...flatArray, flatten(element)] : [...flatArray, element];
+  // }
+  // return flatArray;
 };
 
-module.exports = flatten;
-
-// assertArraysEqual(flatten([1, [2, 3]]), [1, 2, 3]);
-// assertArraysEqual(flatten([[1], "more", ["time"]]), [1, "more", "time"]);
-// assertArraysEqual(flatten([]), []);
+module.exports = { flatten };
